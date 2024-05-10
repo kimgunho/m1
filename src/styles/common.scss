@@ -1,0 +1,25 @@
+// device
+$tablet: 1080px;
+$mobile: 760px;
+
+// font-size
+$font-size-10: 16px;
+$font-size-05: 14px;
+$font-size-00: 12px;
+
+// colors
+
+// responsive
+@mixin TABLET {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin MOBILE {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
+// hover
