@@ -4,6 +4,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Jost', sans-serif;
+  font-optical-sizing: auto;
 }
 html {
   -moz-text-size-adjust: none;
