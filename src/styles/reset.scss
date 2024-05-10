@@ -21,6 +21,7 @@ html {
 }
 body {
   min-height: 100vh;
+  background-color: #101010;
 }
 body,
 h1,
@@ -36,6 +37,7 @@ dd {
 }
 ul,
 ol {
+  margin: 0;
   list-style: none;
   padding: 0;
 }

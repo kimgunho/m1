@@ -1,5 +1,139 @@
 @import 'styles/common.scss';
 
 .container {
-  //
+  @include wrapper;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  gap: 1.5rem;
+  padding-top: 2.5rem;
+  backdrop-filter: blur(20px);
+
+  > .logo {
+    flex-shrink: 0;
+
+    > img {
+      width: 3.5625rem;
+    }
+  }
+  > .wrapper {
+    flex: 1;
+    max-width: 56.25rem;
+    position: relative;
+
+    > .gnb {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 3.75rem;
+      padding: 0.75rem;
+      padding-left: 5.75rem;
+
+      > li {
+        text-transform: uppercase;
+        font-size: 1.125rem;
+        font-weight: 600;
+        user-select: none;
+        &:not(&:has(a)) {
+          cursor: pointer;
+        }
+        &.active {
+          @include gradientText;
+        }
+        &.gotoM1ucs {
+          > a {
+            color: white;
+            padding: 0.75rem 3rem;
+            border-radius: 1.875rem;
+            @include gradientBg;
+          }
+        }
+        > a {
+          display: block;
+          padding: 0.75rem 0;
+        }
+      }
+    }
+    > .subBox {
+      visibility: hidden;
+      position: absolute;
+      background-color: rgba(white, 0.85);
+      padding: 2rem;
+      border-radius: 1.25rem;
+      left: 50%;
+      top: calc(100% + 8px);
+      width: 80%;
+      opacity: 0;
+      transition: all 0.2s;
+      backdrop-filter: blur(20px);
+      transform: translate(-50%, -10px);
+      &.visible {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      &:has(> a) {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      > .row {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        &:not(&:last-of-type) {
+          margin-bottom: 1rem;
+        }
+
+        > .title {
+          font-size: 1rem;
+          color: rgba(black, 0.5);
+          font-weight: 600;
+          border: 1px solid rgba(black, 0.2);
+          width: 7.5rem;
+          height: 2.5rem;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+        > .list {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+
+          a {
+            font-size: 1rem;
+            color: black;
+            font-weight: 600;
+            @include hover {
+              @include gradientText;
+            }
+          }
+        }
+      }
+      > .link {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: black;
+        @include hover {
+          @include gradientText;
+        }
+      }
+    }
+  }
+  > .button {
+    width: fit-content;
+    color: white;
+    background-color: rgba(white, 0.2);
+    border-radius: 1.875rem;
+    font-size: 1.125rem;
+    line-height: 0;
+    padding: 1.25rem;
+  }
 }

@@ -15,11 +15,27 @@ $font-size-00: 12px;
     @content;
   }
 }
-
 @mixin MOBILE {
   @media screen and (max-width: $mobile) {
     @content;
   }
 }
 
-// hover
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+@mixin wrapper {
+  padding: 0 6.75rem;
+}
+@mixin gradientBg {
+  background: linear-gradient(180deg, rgba(0, 80, 153, 1) 0%, rgba(120, 190, 255, 1) 100%);
+}
+@mixin gradientText {
+  background: linear-gradient(90deg, rgba(#005099, 1) 0%, rgba(#78beff, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
