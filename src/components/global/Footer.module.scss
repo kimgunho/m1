@@ -1,5 +1,108 @@
 @import 'styles/common.scss';
 
 .container {
-  //
+  position: relative;
+
+  > .top {
+    display: flex;
+    align-items: flex-start;
+    padding: 11.25rem 0 3.75rem;
+    margin: 0 6.75rem;
+    border-bottom: 1px solid white;
+
+    > .box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      &:first-of-type {
+        flex-grow: 2;
+      }
+      &:last-of-type {
+        flex-grow: 1;
+      }
+
+      > .text {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      > .mail {
+        font-size: 4.25rem;
+        font-weight: 600;
+        color: white;
+        @include hover {
+          @include gradientText;
+        }
+      }
+      > .addr {
+        color: rgba(white, 0.6);
+        font-size: 1.5rem;
+      }
+      > .tel {
+        font-size: 1.5rem;
+        color: white;
+        @include hover {
+          @include gradientText;
+        }
+      }
+    }
+  }
+  > .bottom {
+    padding: 12.5rem 6.75rem 0 6.75rem;
+    position: relative;
+    cursor: none;
+
+    > .text {
+      width: 100%;
+    }
+    > .cursor {
+      display: none;
+      position: fixed;
+      width: 11.25rem;
+      height: 11.25rem;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 10;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+      visibility: hidden;
+      pointer-events: none;
+      @include gradientBg;
+
+      &.visible {
+        visibility: visible;
+      }
+    }
+  }
+  > .noise {
+    background-image: url('../../assets/images/global/noise.png');
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    mix-blend-mode: overlay;
+    isolation: isolate;
+    &::before {
+      content: '';
+      background: linear-gradient(45deg, rgba(#005099, 1) 50%, rgba(black, 1) 100%);
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: overlay;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: white;
+      z-index: -10;
+      inset: 0;
+      opacity: 0.25;
+    }
+  }
 }
