@@ -35,7 +35,7 @@ $font-size-00: 12px;
   background: linear-gradient(180deg, rgba(0, 80, 153, 1) 0%, rgba(120, 190, 255, 1) 100%);
 }
 @mixin gradientText {
-  background: linear-gradient(90deg, rgba(#005099, 1) 0%, rgba(#78beff, 1) 100%);
+  background: linear-gradient(90deg, rgba(#0094ff, 1) 0%, rgba(#c6f1ff, 1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

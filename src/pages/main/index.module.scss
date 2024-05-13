@@ -1,5 +1,32 @@
 @import 'styles/common.scss';
 
 .container {
-  //
+  > .parallaxes {
+    position: relative;
+
+    > .scrollbar {
+      position: absolute;
+      width: 8px;
+      right: 6.75rem;
+      top: calc(50vh - 250px);
+      bottom: calc(50vh - 250px);
+
+      > .thumb {
+        overflow: hidden;
+        width: 100%;
+        border-radius: 8px;
+        height: 500px;
+        position: sticky;
+        top: calc(50vh - 250px);
+        background-color: rgba(white, 0.2);
+
+        > .process {
+          background-color: #0094ff;
+          width: 100%;
+          border-radius: 8px;
+          transition: height 0.2s;
+        }
+      }
+    }
+  }
 }
