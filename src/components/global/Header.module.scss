@@ -49,7 +49,7 @@
             color: white;
             padding: 0.75rem 3rem;
             border-radius: 1.875rem;
-            @include gradientBg;
+            @include gradientBg(180deg);
           }
         }
         > a {

@@ -6,10 +6,12 @@ import Parallax02_ICON from 'assets/images/main/safety_img.png';
 import Parallax03_ICON from 'assets/images/main/extensibility_img.png';
 import Parallax04_ICON from 'assets/images/main/easyToUse_img.png';
 
-import useRefObserver from 'hooks/useRefObserver';
 import Parallax from 'components/main/Parallax';
 import { SCROLL_SPEED } from 'config';
 import S01 from './S01';
+import S02 from './S02';
+import S03 from './S03';
+import S04 from './S04';
 import styles from './index.module.scss';
 
 const cx = classNames.bind(styles);
@@ -17,21 +19,18 @@ const cx = classNames.bind(styles);
 const Page = () => {
   const [percent, setPercent] = useState(0);
   const parallaxesRef = useRef();
-  const observer = useRefObserver(parallaxesRef);
 
   useEffect(() => {
     const mousewheel = (e) => {
       changePercent();
-      if (observer.center) {
-        handleScroll(e);
-      }
+      handleScroll(e);
     };
     window.addEventListener('mousewheel', mousewheel, { passive: false });
 
     return () => {
       window.removeEventListener('mousewheel', mousewheel, { passive: false });
     };
-  }, [observer.center]);
+  }, []);
 
   const changePercent = () => {
     const height = parallaxesRef.current.clientHeight;
@@ -88,6 +87,9 @@ const Page = () => {
           icon={Parallax04_ICON}
         />
       </div>
+      <S02 />
+      <S03 />
+      <S04 />
     </div>
   );
 };

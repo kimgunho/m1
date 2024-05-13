@@ -75,7 +75,7 @@
       color: white;
       visibility: hidden;
       pointer-events: none;
-      @include gradientBg;
+      @include gradientBg(180deg);
 
       &.visible {
         visibility: visible;
