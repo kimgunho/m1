@@ -1,23 +1,37 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import LOGO from 'assets/images/global/logo.png';
 import menus from 'define/menus';
 import { M1UCS_DOMAIN } from 'config';
-
 import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
+  const { i18n } = useTranslation();
   const [selectMenu, setSelectMenu] = useState();
+  const [lang, setLang] = useState(i18n.language);
 
   const select = (_menu) => {
     if (selectMenu === _menu) {
       setSelectMenu();
     } else {
       setSelectMenu(_menu);
+    }
+  };
+
+  const toggle = () => {
+    if (lang === 'ko') {
+      i18n.changeLanguage('en');
+      localStorage.setItem('@m1/lang', 'en');
+      setLang('en');
+    } else {
+      i18n.changeLanguage('ko');
+      localStorage.setItem('@m1/lang', 'ko');
+      setLang('ko');
     }
   };
 
@@ -74,8 +88,8 @@ const Header = () => {
             })}
         </div>
       </div>
-      <button className={cx('button')} type="button">
-        KR
+      <button onClick={toggle} className={cx('button')} type="button">
+        {lang === 'ko' ? 'EN' : 'KR'}
       </button>
     </header>
   );

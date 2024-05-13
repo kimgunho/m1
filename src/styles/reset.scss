@@ -23,6 +23,10 @@ body {
   min-height: 100vh;
   background-color: #101010;
 }
+#root {
+  white-space: pre-line;
+  word-break: keep-all;
+}
 body,
 h1,
 h2,
@@ -46,7 +50,11 @@ h2,
 h3,
 h4,
 p,
-li {
+li,
+div,
+a,
+strong,
+span {
   text-wrap: balance;
 }
 a {

@@ -1,0 +1,9 @@
+{
+  "main": {
+    "whoWeAre": "MOBILITYONE offers an integrated platform, M1UCS, that effectively operates a variety of mobility robots. We also provide high-quality outsourcing services utilizing this platform, ensuring that you no longer waste time learning how to use drones or robots. Instead, you can focus solely on your core business tasks with MobilityOne's solutions and services.",
+    "integration": "Various types of unmanned vehicles such as robots and drones can be integrated into a single application, enabling systematic governance-centric operations.",
+    "safety": "Safety operation processes are in place to eliminate user errors, and it is possible to conduct safety inspections and predictive maintenance of critical components.",
+    "extensibility": "Based on the latest web technologies, it ensures excellent scalability and device compatibility, and is capable of providing services in all forms, including cloud, on-premise/stand-alone, and mobile.",
+    "easyToUse": "The UI/UX of the solution is designed to be operated without any knowledge of the devices, allowing existing staff to use it easily without the need for additional training."
+  }
+}
