@@ -11,12 +11,12 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  font-size: $font-size-10;
+  font-size: $font-size-desktop;
   @include TABLET {
-    font-size: $font-size-05;
+    font-size: $font-size-tablet;
   }
   @include MOBILE {
-    font-size: $font-size-00;
+    font-size: $font-size-mobile;
   }
 }
 body {

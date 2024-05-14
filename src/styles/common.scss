@@ -3,11 +3,9 @@ $tablet: 1080px;
 $mobile: 760px;
 
 // font-size
-$font-size-10: 16px;
-$font-size-05: 14px;
-$font-size-00: 12px;
-
-// colors
+$font-size-desktop: 16px;
+$font-size-tablet: 14px;
+$font-size-mobile: 12px;
 
 // responsive
 @mixin TABLET {
@@ -15,12 +13,14 @@ $font-size-00: 12px;
     @content;
   }
 }
+
 @mixin MOBILE {
   @media screen and (max-width: $mobile) {
     @content;
   }
 }
 
+// hover
 @mixin hover {
   @media (hover: hover) {
     &:hover {
@@ -32,9 +32,11 @@ $font-size-00: 12px;
 @mixin wrapper {
   padding: 0 6.75rem;
 }
+
 @mixin gradientBg($deg) {
   background: linear-gradient($deg, rgba(0, 80, 153, 1) 0%, rgba(120, 190, 255, 1) 100%);
 }
+
 @mixin gradientText {
   background: linear-gradient(90deg, rgba(#0094ff, 1) 0%, rgba(#c6f1ff, 1) 100%);
   -webkit-background-clip: text;
