@@ -1,0 +1,46 @@
+@import 'styles/common.scss';
+
+.container {
+  padding-top: 15rem;
+
+  > .title {
+    font-size: 4rem;
+    font-weight: 600;
+    @include wrapper;
+    @include gradientText;
+  }
+  > .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3.75rem;
+
+    > .list {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      width: max-content;
+      overflow: hidden;
+      animation: scroll 50s reverse linear infinite;
+      user-select: none;
+      &:first-of-type {
+        margin-left: 98px;
+      }
+
+      > li {
+        background-color: white;
+        border-radius: 6.25rem;
+        > img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  100% {
+    transform: translateX(calc(-50% - 1.5rem));
+  }
+}

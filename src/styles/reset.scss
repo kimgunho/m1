@@ -11,16 +11,21 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  font-size: $font-size-10;
+  font-size: $font-size-desktop;
   @include TABLET {
-    font-size: $font-size-05;
+    font-size: $font-size-tablet;
   }
   @include MOBILE {
-    font-size: $font-size-00;
+    font-size: $font-size-mobile;
   }
 }
 body {
   min-height: 100vh;
+  background-color: #101010;
+}
+#root {
+  white-space: pre-line;
+  word-break: keep-all;
 }
 body,
 h1,
@@ -36,6 +41,7 @@ dd {
 }
 ul,
 ol {
+  margin: 0;
   list-style: none;
   padding: 0;
 }
@@ -44,7 +50,11 @@ h2,
 h3,
 h4,
 p,
-li {
+li,
+div,
+a,
+strong,
+span {
   text-wrap: balance;
 }
 a {
