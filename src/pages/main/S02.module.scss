@@ -27,7 +27,7 @@
         overflow: hidden;
         @include hover {
           > img {
-            transform: scale(1.15);
+            transform: scale(1.05);
           }
         }
 
@@ -46,7 +46,7 @@
         > img {
           width: 100%;
           object-fit: cover;
-          transition: transform 0.5s ease-in-out;
+          transition: transform 1.5s;
         }
       }
     }
