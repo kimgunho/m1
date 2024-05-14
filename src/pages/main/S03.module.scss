@@ -2,6 +2,7 @@
 
 .container {
   padding-top: 15rem;
+  overflow: hidden;
 
   > .title {
     font-size: 4rem;
@@ -21,10 +22,13 @@
       gap: 1.5rem;
       width: max-content;
       overflow: hidden;
-      animation: scroll 50s reverse linear infinite;
       user-select: none;
       &:first-of-type {
+        animation: scroll 50s reverse linear infinite;
         margin-left: 98px;
+      }
+      &:last-of-type {
+        animation: scroll 50s linear infinite;
       }
 
       > li {
