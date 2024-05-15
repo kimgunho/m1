@@ -20,15 +20,20 @@
       grid-gap: 1.5rem;
 
       > li {
+        position: relative;
         overflow: hidden;
         border-radius: 1.25rem;
-        position: relative;
-        > a {
-          @include hover {
-            > img {
-              transform: scale(1.05);
-            }
+        border: 4px solid transparent;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        @include hover {
+          background-image: linear-gradient(#fff, #fff), linear-gradient(0deg, #78beff 0%, #005099 100%);
+          img {
+            transform: scale(1.05);
           }
+        }
+
+        > a {
           > .box {
             position: absolute;
             bottom: 2.5rem;
@@ -56,6 +61,7 @@
             }
           }
           > .dimmed {
+            // border-radius: 1.25rem;
             position: absolute;
             inset: 0;
             z-index: 1;
@@ -73,15 +79,36 @@
       background-color: transparent;
       border-radius: 3.75rem;
       border: 1px solid white;
-      color: white;
-      font-size: 1.875rem;
-      font-weight: 600;
       padding: 1.875rem 7.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
       max-width: fit-content;
       margin: 5rem auto 0;
+      position: relative;
+      overflow: hidden;
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        transition: all 0.2s;
+        opacity: 0;
+        background: linear-gradient(-105deg, rgba(#005099, 1) 0%, rgba(#78beff, 1) 100%);
+      }
+      @include hover {
+        border-color: transparent;
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      > span {
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-size: 1.875rem;
+        font-weight: 600;
+      }
     }
   }
 }

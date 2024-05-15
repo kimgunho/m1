@@ -29,7 +29,7 @@ const S05 = () => {
             ))}
         </ul>
         <Link className={cx('more')} to="">
-          MORE VIEW
+          <span>MORE VIEW</span>
         </Link>
       </div>
     </div>

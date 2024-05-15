@@ -54,11 +54,11 @@ const S02 = () => {
   ];
 
   useEffect(() => {
-    sectionsRef.current.forEach((ref, index) => {
+    sectionsRef.current.forEach((section, index) => {
       const isLast = index === sectionsRef.current.length - 1;
       const timeline = gsap.timeline({
         scrollTrigger: {
-          trigger: ref,
+          trigger: section,
           scrub: true,
           start: 'center bottom',
           end: 'center center',
@@ -68,7 +68,7 @@ const S02 = () => {
       if (isLast) {
         timeline.to(noiseRef.current, { opacity: 0 }, 0);
       }
-      timeline.to(ref, { className: cx(['section', 'overlap']) }, 0);
+      timeline.to(section, { className: cx(['section', 'overlap']) }, 0);
     });
 
     updatePercent();
