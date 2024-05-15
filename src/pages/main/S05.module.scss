@@ -1,7 +1,7 @@
 @import 'styles/common.scss';
 
 .container {
-  @include wrapper;
+  @include sidePadding;
   padding-top: 15rem;
   padding-bottom: 10rem;
 
@@ -61,7 +61,6 @@
             }
           }
           > .dimmed {
-            // border-radius: 1.25rem;
             position: absolute;
             inset: 0;
             z-index: 1;
@@ -93,7 +92,7 @@
         inset: 0;
         transition: all 0.2s;
         opacity: 0;
-        background: linear-gradient(-105deg, rgba(#005099, 1) 0%, rgba(#78beff, 1) 100%);
+        @include gradientBg(-105deg);
       }
       @include hover {
         border-color: transparent;

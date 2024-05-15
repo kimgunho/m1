@@ -7,7 +7,7 @@
   > .title {
     font-size: 4rem;
     font-weight: 600;
-    @include wrapper;
+    @include sidePadding;
     @include gradientText;
   }
   > .wrapper {

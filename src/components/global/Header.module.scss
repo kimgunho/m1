@@ -1,7 +1,7 @@
 @import 'styles/common.scss';
 
 .container {
-  @include wrapper;
+  @include sidePadding;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,10 +10,20 @@
   z-index: 100;
   gap: 1.5rem;
   padding-top: 2.5rem;
-  backdrop-filter: blur(20px);
   transition: transform 0.5s;
   &.hide {
-    transform: translateY(-100%);
+    transform: translateY(calc(-100% - 1.875rem));
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 1.875rem);
+    z-index: -1;
+    backdrop-filter: blur(20px);
+    mask: linear-gradient(0deg, transparent, white 1.875rem, white calc(100% - 1.875rem));
   }
 
   > .logo {
@@ -44,7 +54,7 @@
         padding: 1.5rem 0;
         @include hover {
           > a {
-            @include gradientText;
+            @include gradientHoverText(black);
           }
           > .sub {
             visibility: visible;
@@ -68,10 +78,8 @@
           border-radius: 1.25rem;
 
           > li {
-            @include hover {
-              > a {
-                @include gradientText;
-              }
+            > a {
+              @include gradientHoverText(black);
             }
           }
         }
@@ -79,12 +87,14 @@
     }
   }
   > .button {
-    width: 3.75rem;
+    width: 3.875rem;
+    height: 3.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     background-color: rgba(white, 0.2);
     border-radius: 1.875rem;
     font-size: 1.125rem;
-    line-height: 0;
-    padding: 1.25rem;
   }
 }
