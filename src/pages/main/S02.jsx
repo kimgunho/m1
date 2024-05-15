@@ -1,36 +1,116 @@
+import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import M1UCS from 'assets/images/main/m1ucs.png';
-import SURVEY from 'assets/images/main/survey.png';
-import AEROLENZE from 'assets/images/main/aero_lenze.png';
+import Section02_PICTOGRAM from 'assets/images/main/integration_img.png';
+import Section03_PICTOGRAM from 'assets/images/main/safety_img.png';
+import Section04_PICTOGRAM from 'assets/images/main/extensibility_img.png';
+import Section05_PICTOGRAM from 'assets/images/main/easyToUse_img.png';
 
 import styles from './S02.module.scss';
 
 const cx = classNames.bind(styles);
 
 const S02 = () => {
+  const { t } = useTranslation();
+  const [process, setProcess] = useState(0);
+  const containerRef = useRef();
+  const sectionsRef = useRef([]);
+  const noiseRef = useRef();
+
+  const sections = [
+    {
+      subTitle: 'MOBILITYONE',
+      title: 'WHO WE ARE',
+      desc: t('main.whoWeAre'),
+      pictogram: null,
+    },
+    {
+      subTitle: 'OUR ADVANTAGE 01',
+      title: 'INTEGRATION',
+      desc: t('main.integration'),
+      pictogram: Section02_PICTOGRAM,
+    },
+    {
+      subTitle: 'OUR ADVANTAGE 02',
+      title: 'SAFETY',
+      desc: t('main.safety'),
+      pictogram: Section03_PICTOGRAM,
+    },
+    {
+      subTitle: 'OUR ADVANTAGE 03',
+      title: 'EXTENSIBILITY/&COMPATIBILITY',
+      desc: t('main.extensibility'),
+      pictogram: Section04_PICTOGRAM,
+    },
+    {
+      subTitle: 'OUR ADVANTAGE 04',
+      title: 'EASY TO USE',
+      desc: t('main.easyToUse'),
+      pictogram: Section05_PICTOGRAM,
+    },
+  ];
+
+  useEffect(() => {
+    sectionsRef.current.forEach((ref, index) => {
+      const isLast = index === sectionsRef.current.length - 1;
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ref,
+          scrub: true,
+          start: 'center bottom',
+          end: 'center center',
+        },
+      });
+
+      if (isLast) {
+        timeline.to(noiseRef.current, { opacity: 0 }, 0);
+      }
+      timeline.to(ref, { className: cx(['section', 'overlap']) }, 0);
+    });
+
+    updatePercent();
+  }, []);
+
+  const updatePercent = () => {
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top bottom',
+      end: 'bottom bottom',
+      onUpdate: (self) => {
+        setProcess(self.progress * 100);
+      },
+    });
+  };
+
   return (
-    <div className={cx('container')}>
-      <strong className={cx('title')}>PRODUCT & SERVICE</strong>
-      <div className={cx('wrapper')}>
-        <div className={cx('box')}>
-          <Link to={'/'} className={cx('content')}>
-            <p className={cx('label')}>M1UCS</p>
-            <img draggable={false} src={M1UCS} alt="" />
-          </Link>
-        </div>
-        <div className={cx('box')}>
-          <Link to={'/'} className={cx('content')}>
-            <p className={cx('label')}>SURVEY</p>
-            <img draggable={false} src={SURVEY} alt="" />
-          </Link>
-          <Link to={'/'} className={cx('content')}>
-            <p className={cx('label')}>AERO LENZE</p>
-            <img draggable={false} src={AEROLENZE} alt="" />
-          </Link>
+    <div ref={containerRef} className={cx('container')}>
+      <div className={cx('scrollbar')}>
+        <div className={cx('thumb')}>
+          <div className={cx('process')} style={{ height: `${process}%` }} />
         </div>
       </div>
+      {sections.map((section, index) => (
+        <div key={section.title} ref={(el) => (sectionsRef.current[index] = el)} className={cx('section')}>
+          <div className={cx('left')}>
+            <div className={cx('top')}>
+              <p className={cx('subTitle')}>{section.subTitle}</p>
+              <strong className={cx('title')}>
+                {section.title.split('/').map((text) => (
+                  <span key={text}>{text}</span>
+                ))}
+              </strong>
+            </div>
+            {section.pictogram && <img className={cx('pictogram')} src={section.pictogram} alt="" />}
+          </div>
+          <div className={cx('right')}>
+            <p>{section.desc}</p>
+          </div>
+        </div>
+      ))}
+      <div ref={noiseRef} className={cx('noise')} />
     </div>
   );
 };

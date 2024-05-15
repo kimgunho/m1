@@ -4,6 +4,7 @@
   position: relative;
   height: calc(100vh - 7rem);
   padding: 3.125rem;
+  background-color: #101010;
   padding-bottom: 0;
   display: flex;
   align-items: center;
@@ -32,6 +33,29 @@
 
     > img {
       width: 100%;
+    }
+  }
+  > .noise {
+    background-image: url('../../assets/images/global/noise.png');
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: soft-light;
+    isolation: isolate;
+    opacity: 0;
+    &::before {
+      content: '';
+      background: radial-gradient(at 50% bottom, rgba(#6bb2f4, 1) 0%, rgba(black, 1) 100%);
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: soft-light;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: white;
+      z-index: -10;
+      inset: 0;
+      opacity: 0.35;
     }
   }
 }

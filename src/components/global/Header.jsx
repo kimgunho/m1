@@ -16,10 +16,10 @@ const Header = () => {
   const [hide, setHide] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('mousewheel', scroll);
+    window.addEventListener('wheel', scroll);
 
     return () => {
-      window.removeChild('mousewheel', scroll);
+      window.removeChild('wheel', scroll);
     };
   }, []);
 
