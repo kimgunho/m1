@@ -29,16 +29,29 @@ $font-size-mobile: 12px;
   }
 }
 
-@mixin wrapper {
+@mixin sidePadding {
   padding: 0 6.75rem;
 }
 
 @mixin gradientBg($deg) {
-  background: linear-gradient($deg, rgba(0, 80, 153, 1) 0%, rgba(120, 190, 255, 1) 100%);
+  background: linear-gradient($deg, #005099 0%, #78beff 100%);
 }
 
 @mixin gradientText {
   background: linear-gradient(90deg, rgba(#0094ff, 1) 0%, rgba(#c6f1ff, 1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@mixin gradientHoverText($color) {
+  background-image: linear-gradient(to right, $color, $color 33.33333%, #0094ff 66.66666%, #c6f1ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  color: $color;
+  background-position: top left;
+  transition: background-position 0.5s ease-in-out;
+  @include hover {
+    background-position: top left 100%;
+  }
 }

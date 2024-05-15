@@ -1,62 +1,50 @@
 const MENUS = {
-  product: {
-    title: 'Product',
-    url: '/product',
-    sub: {
-      software: {
-        title: 'Software',
-        url: '/software',
-        pages: [
-          {
-            title: 'M1UCS',
-            url: '/m1ucs',
-          },
-        ],
-      },
-      hardware: {
-        title: 'Hardware',
-        url: '/hardware',
-        pages: [
-          {
-            title: 'M1 EdgeHub',
-            url: '/edgeHub',
-          },
-          {
-            title: 'M1 Winch for Drone',
-            url: '/winchForDrone',
-          },
-          {
-            title: 'JI-HO V2',
-            url: '/jiHoV2',
-          },
-          {
-            title: 'SV-MAX',
-            url: '/svMax',
-          },
-        ],
-      },
-    },
+  M1UCS: {
+    title: 'M1UCS',
+    url: '/m1ucs',
   },
-  service: {
-    title: 'Service',
+  PRODUCT: {
+    title: 'PRODUCT',
+    url: '/product',
+    sub: [
+      {
+        title: 'M1 EdgeHub',
+        url: '/edgeHub',
+      },
+      {
+        title: 'M1 Winch for Drone',
+        url: '/winchForDrone',
+      },
+      {
+        title: 'JI-HO V2',
+        url: '/jiHoV2',
+      },
+      {
+        title: 'SV-MAX',
+        url: '/svMax',
+      },
+    ],
+  },
+  SERVICE: {
+    title: 'SERVICE',
     url: '/service',
-    sub: {
-      survey: {
+    sub: [
+      {
         title: 'Wide Range Survey',
         url: '/survey',
       },
-      aeroLenze: {
+      {
         title: 'AeroLenze',
         url: '/aerolenze',
       },
-    },
+    ],
   },
-  company: {
-    title: 'Company',
+  COMPANY: {
+    title: 'COMPANY',
     url: '/company',
   },
-  news: {
-    title: 'News',
+  NEWS: {
+    title: 'NEWS',
     url: '/news',
   },
 };

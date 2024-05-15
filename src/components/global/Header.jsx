@@ -1,26 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import LOGO from 'assets/images/global/logo.png';
+
 import menus from 'define/menus';
-import { M1UCS_DOMAIN } from 'config';
 import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
   const { i18n } = useTranslation();
-  const [selectMenu, setSelectMenu] = useState();
   const [lang, setLang] = useState(i18n.language);
+  const [hide, setHide] = useState(false);
 
-  const select = (_menu) => {
-    if (selectMenu === _menu) {
-      setSelectMenu();
-    } else {
-      setSelectMenu(_menu);
+  useEffect(() => {
+    window.addEventListener('wheel', scroll);
+
+    return () => {
+      window.removeChild('wheel', scroll);
+    };
+  }, []);
+
+  const scroll = (e) => {
+    if (window.scrollY === 0) {
+      setHide(false);
+      return;
     }
+
+    e.deltaY > 0 ? setHide(true) : setHide(false);
   };
 
   const toggle = () => {
@@ -36,7 +45,7 @@ const Header = () => {
   };
 
   return (
-    <header className={cx('container')}>
+    <header className={cx('container', { hide })}>
       <Link className={cx('logo')} to={'/'}>
         <img src={LOGO} alt="" />
       </Link>
@@ -44,10 +53,16 @@ const Header = () => {
         <ul className={cx('gnb')}>
           {menus.map((menu) => {
             if (menu.sub) {
-              const active = selectMenu?.title === menu.title;
               return (
-                <li onClick={() => select(menu)} key={menu.title} className={cx({ active })}>
-                  {menu.title}
+                <li key={menu.title}>
+                  <Link to={`${menu.url}${menu.sub[0].url}`}>{menu.title}</Link>
+                  <ul className={cx('sub')}>
+                    {menu.sub.map((_sub) => (
+                      <li key={_sub.title}>
+                        <Link to={`${menu.url}${_sub.url}`}>{_sub.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
               );
             }
@@ -57,36 +72,7 @@ const Header = () => {
               </li>
             );
           })}
-          <li className={cx('gotoM1ucs')}>
-            <a className={cx('link')} href={M1UCS_DOMAIN} target="_blank" rel="noreferrer">
-              M1UCS
-            </a>
-          </li>
         </ul>
-        <div className={cx('subBox', { visible: selectMenu })}>
-          {selectMenu &&
-            Object.values(selectMenu.sub).map((_sub) => {
-              if (_sub.pages) {
-                return (
-                  <div key={_sub.title} className={cx('row')}>
-                    <strong className={cx('title')}>{_sub.title}</strong>
-                    <ul className={cx('list')}>
-                      {_sub.pages.map((page) => (
-                        <li key={page.title}>
-                          {<Link to={`${selectMenu.url}${_sub.url}${page.url}`}>{page.title}</Link>}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              }
-              return (
-                <Link className={cx('link')} to={`${selectMenu.url}${_sub.url}`} key={_sub.title}>
-                  {_sub.title}
-                </Link>
-              );
-            })}
-        </div>
       </div>
       <button onClick={toggle} className={cx('button')} type="button">
         {lang === 'ko' ? 'EN' : 'KR'}
