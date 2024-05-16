@@ -17,6 +17,10 @@ const Header = () => {
   const [hide, setHide] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  useEffect(() => {
     window.addEventListener('wheel', scroll);
 
     return () => {
