@@ -11,13 +11,13 @@ const Page = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   return (
-    <>
+    <div>
       <S01 />
       <S02 />
       <S03 />
       <S04 />
       <S05 />
-    </>
+    </div>
   );
 };
 

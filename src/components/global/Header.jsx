@@ -19,7 +19,7 @@ const Header = () => {
     window.addEventListener('wheel', scroll);
 
     return () => {
-      window.removeChild('wheel', scroll);
+      window.removeEventListener('wheel', scroll);
     };
   }, []);
 
