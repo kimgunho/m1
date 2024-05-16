@@ -53,12 +53,17 @@
         cursor: pointer;
         padding: 1.5rem 0;
         @include hover {
-          > a {
+          > .link {
             @include gradientHoverText(black);
           }
           > .sub {
             visibility: visible;
             opacity: 1;
+          }
+        }
+        > .link {
+          &.active {
+            @include gradientText;
           }
         }
         > .sub {
@@ -78,8 +83,11 @@
           border-radius: 1.25rem;
 
           > li {
-            > a {
+            > .link {
               @include gradientHoverText(black);
+              &.active {
+                @include gradientText;
+              }
             }
           }
         }
