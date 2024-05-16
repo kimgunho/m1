@@ -4,6 +4,30 @@
   position: relative;
   background-color: #101010;
 
+  .noise {
+    background-image: url('../../assets/images/global/noise.png');
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: soft-light;
+    isolation: isolate;
+    height: 100vh !important;
+    width: 100% !important;
+    &::before {
+      content: '';
+      background: radial-gradient(at 50% bottom, rgba(#6bb2f4, 1) 0%, rgba(black, 1) 100%);
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: soft-light;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: white;
+      z-index: -10;
+      inset: 0;
+      opacity: 0.35;
+    }
+  }
   > .scrollbar {
     position: absolute;
     width: 8px;
@@ -30,7 +54,7 @@
       }
     }
   }
-  .section {
+  > .section {
     padding: 10rem 6.75rem 0;
     min-height: 100vh;
     display: flex;
@@ -91,28 +115,6 @@
           line-height: 1.7;
         }
       }
-    }
-  }
-  > .noise {
-    background-image: url('../../assets/images/global/noise.png');
-    position: absolute;
-    inset: 0;
-    mix-blend-mode: soft-light;
-    isolation: isolate;
-    &::before {
-      content: '';
-      background: radial-gradient(at 50% bottom, rgba(#6bb2f4, 1) 0%, rgba(black, 1) 100%);
-      position: absolute;
-      inset: 0;
-      mix-blend-mode: soft-light;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      background-color: white;
-      z-index: -10;
-      inset: 0;
-      opacity: 0.35;
     }
   }
 }

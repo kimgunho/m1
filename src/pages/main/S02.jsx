@@ -57,7 +57,6 @@ const S02 = () => {
   useEffect(() => {
     sectionsRef.current.forEach((section, index) => {
       const desc = section.querySelector('[data-desc]');
-      const isLast = index === sectionsRef.current.length - 1;
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -67,17 +66,34 @@ const S02 = () => {
         },
       });
 
-      if (isLast) {
-        timeline.to(noiseRef.current, { opacity: 0 }, 0);
-      }
-
       timeline
         .fromTo(desc, { opacity: 0 }, { opacity: 1 }, 0)
         .to(section, { className: cx(['section', 'overlap']) }, 0);
     });
 
     moveScrollThumb();
+    fixNoise();
   }, []);
+
+  const fixNoise = () => {
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      scrub: true,
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: noiseRef.current,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const endThreshold = 0.95;
+
+        if (progress >= endThreshold) {
+          gsap.to(noiseRef.current, { opacity: 0 });
+        } else {
+          gsap.to(noiseRef.current, { opacity: 1 });
+        }
+      },
+    });
+  };
 
   const moveScrollThumb = () => {
     ScrollTrigger.create({
@@ -98,6 +114,7 @@ const S02 = () => {
           <div className={cx('thumb')} style={{ top }} />
         </div>
       </div>
+      <div ref={noiseRef} className={cx('noise')} />
       {sections.map((section, index) => (
         <div key={section.title} ref={(el) => (sectionsRef.current[index] = el)} className={cx('section')}>
           <div className={cx('left')}>
@@ -116,7 +133,6 @@ const S02 = () => {
           </div>
         </div>
       ))}
-      <div ref={noiseRef} className={cx('noise')} />
     </div>
   );
 };
