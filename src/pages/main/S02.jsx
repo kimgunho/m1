@@ -15,10 +15,11 @@ const cx = classNames.bind(styles);
 
 const S02 = () => {
   const { t } = useTranslation();
-  const [process, setProcess] = useState(0);
+  const [top, setTop] = useState(0);
   const containerRef = useRef();
   const sectionsRef = useRef([]);
   const noiseRef = useRef();
+  const trackRef = useRef();
 
   const sections = [
     {
@@ -55,6 +56,7 @@ const S02 = () => {
 
   useEffect(() => {
     sectionsRef.current.forEach((section, index) => {
+      const desc = section.querySelector('[data-desc]');
       const isLast = index === sectionsRef.current.length - 1;
       const timeline = gsap.timeline({
         scrollTrigger: {
@@ -68,19 +70,23 @@ const S02 = () => {
       if (isLast) {
         timeline.to(noiseRef.current, { opacity: 0 }, 0);
       }
-      timeline.to(section, { className: cx(['section', 'overlap']) }, 0);
+
+      timeline
+        .fromTo(desc, { opacity: 0 }, { opacity: 1 }, 0)
+        .to(section, { className: cx(['section', 'overlap']) }, 0);
     });
 
-    updatePercent();
+    moveScrollThumb();
   }, []);
 
-  const updatePercent = () => {
+  const moveScrollThumb = () => {
     ScrollTrigger.create({
       trigger: containerRef.current,
-      start: 'top bottom',
+      start: 'top center',
       end: 'bottom bottom',
       onUpdate: (self) => {
-        setProcess(self.progress * 100);
+        const _top = ((self.progress - 0) * (trackRef.current.clientHeight - 100 - 0)) / (1 - 0) + 0;
+        setTop(_top);
       },
     });
   };
@@ -88,8 +94,8 @@ const S02 = () => {
   return (
     <div ref={containerRef} className={cx('container')}>
       <div className={cx('scrollbar')}>
-        <div className={cx('thumb')}>
-          <div className={cx('process')} style={{ height: `${process}%` }} />
+        <div ref={trackRef} className={cx('track')}>
+          <div className={cx('thumb')} style={{ top }} />
         </div>
       </div>
       {sections.map((section, index) => (
@@ -106,7 +112,7 @@ const S02 = () => {
             {section.pictogram && <img className={cx('pictogram')} src={section.pictogram} alt="" />}
           </div>
           <div className={cx('right')}>
-            <p>{section.desc}</p>
+            <p data-desc>{section.desc}</p>
           </div>
         </div>
       ))}
