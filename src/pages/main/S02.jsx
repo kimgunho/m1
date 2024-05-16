@@ -15,10 +15,11 @@ const cx = classNames.bind(styles);
 
 const S02 = () => {
   const { t } = useTranslation();
-  const [process, setProcess] = useState(0);
+  const [top, setTop] = useState(0);
   const containerRef = useRef();
   const sectionsRef = useRef([]);
   const noiseRef = useRef();
+  const trackRef = useRef();
 
   const sections = [
     {
@@ -55,7 +56,7 @@ const S02 = () => {
 
   useEffect(() => {
     sectionsRef.current.forEach((section, index) => {
-      const isLast = index === sectionsRef.current.length - 1;
+      const desc = section.querySelector('[data-desc]');
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -65,22 +66,43 @@ const S02 = () => {
         },
       });
 
-      if (isLast) {
-        timeline.to(noiseRef.current, { opacity: 0 }, 0);
-      }
-      timeline.to(section, { className: cx(['section', 'overlap']) }, 0);
+      timeline
+        .fromTo(desc, { opacity: 0 }, { opacity: 1 }, 0)
+        .to(section, { className: cx(['section', 'overlap']) }, 0);
     });
 
-    updatePercent();
+    moveScrollThumb();
+    fixNoise();
   }, []);
 
-  const updatePercent = () => {
+  const fixNoise = () => {
     ScrollTrigger.create({
       trigger: containerRef.current,
-      start: 'top bottom',
+      scrub: true,
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: noiseRef.current,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const endThreshold = 0.95;
+
+        if (progress >= endThreshold) {
+          gsap.to(noiseRef.current, { opacity: 0 });
+        } else {
+          gsap.to(noiseRef.current, { opacity: 1 });
+        }
+      },
+    });
+  };
+
+  const moveScrollThumb = () => {
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top center',
       end: 'bottom bottom',
       onUpdate: (self) => {
-        setProcess(self.progress * 100);
+        const _top = ((self.progress - 0) * (trackRef.current.clientHeight - 100 - 0)) / (1 - 0) + 0;
+        setTop(_top);
       },
     });
   };
@@ -88,10 +110,11 @@ const S02 = () => {
   return (
     <div ref={containerRef} className={cx('container')}>
       <div className={cx('scrollbar')}>
-        <div className={cx('thumb')}>
-          <div className={cx('process')} style={{ height: `${process}%` }} />
+        <div ref={trackRef} className={cx('track')}>
+          <div className={cx('thumb')} style={{ top }} />
         </div>
       </div>
+      <div ref={noiseRef} className={cx('noise')} />
       {sections.map((section, index) => (
         <div key={section.title} ref={(el) => (sectionsRef.current[index] = el)} className={cx('section')}>
           <div className={cx('left')}>
@@ -106,11 +129,10 @@ const S02 = () => {
             {section.pictogram && <img className={cx('pictogram')} src={section.pictogram} alt="" />}
           </div>
           <div className={cx('right')}>
-            <p>{section.desc}</p>
+            <p data-desc>{section.desc}</p>
           </div>
         </div>
       ))}
-      <div ref={noiseRef} className={cx('noise')} />
     </div>
   );
 };

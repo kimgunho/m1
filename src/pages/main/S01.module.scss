@@ -18,7 +18,10 @@
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
+    z-index: 2;
     font-size: 1.5rem;
+    width: 100%;
+    padding: 0 2rem;
   }
   > video {
     width: 100%;
@@ -35,27 +38,10 @@
       width: 100%;
     }
   }
-  > .noise {
-    background-image: url('../../assets/images/global/noise.png');
+  > .dimmed {
     position: absolute;
+    background-color: rgba(0, 0, 0, 0.25);
     inset: 0;
-    mix-blend-mode: soft-light;
-    isolation: isolate;
-    opacity: 0;
-    &::before {
-      content: '';
-      background: radial-gradient(at 50% bottom, rgba(#6bb2f4, 1) 0%, rgba(black, 1) 100%);
-      position: absolute;
-      inset: 0;
-      mix-blend-mode: soft-light;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      background-color: white;
-      z-index: -10;
-      inset: 0;
-      opacity: 0.35;
-    }
+    z-index: 1;
   }
 }

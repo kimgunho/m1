@@ -12,7 +12,6 @@ const cx = classNames.bind(styles);
 
 const S01 = () => {
   const containerRef = useRef();
-  const noiseRef = useRef();
 
   useEffect(() => {
     const timeline = gsap.timeline({
@@ -26,10 +25,7 @@ const S01 = () => {
       },
     });
 
-    // prettier-ignore
-    timeline
-    .to(containerRef.current, { opacity: 0 }, 0)
-    .to(noiseRef.current, { opacity: 1 }, 0);
+    timeline.to(containerRef.current, { opacity: 0 }, 0);
   }, []);
 
   return (
@@ -44,7 +40,7 @@ const S01 = () => {
       <div className={cx('bottom')}>
         <img src={TEXT} alt="" />
       </div>
-      <div ref={noiseRef} className={cx('noise')} />
+      <div className={cx('dimmed')} />
     </div>
   );
 };
