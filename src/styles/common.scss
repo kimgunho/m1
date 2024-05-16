@@ -62,3 +62,25 @@ $font-size-mobile: 12px;
     background-position: top left 100%;
   }
 }
+
+@mixin containerBg($url) {
+  min-height: 100vh;
+  position: relative;
+  &::before {
+    content: '';
+    z-index: 0;
+    background-image: url($url);
+    background-repeat: repeat-y;
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: overlay;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(#6bb2f4, 1) 40vh, rgba(black, 1) 100vh);
+    mix-blend-mode: overlay;
+  }
+}

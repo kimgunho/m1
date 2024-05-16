@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import TEMP from 'assets/images/temp/drone.jpg';
 
+import RoundButton from 'components/ui/RoundButton';
 import styles from './S05.module.scss';
 
 const cx = classNames.bind(styles);
@@ -28,9 +29,9 @@ const S05 = () => {
               </li>
             ))}
         </ul>
-        <Link className={cx('more')} to="">
-          <span>MORE VIEW</span>
-        </Link>
+        <div className={cx('box')}>
+          <RoundButton text="MORE VIEW" href="" />
+        </div>
       </div>
     </div>
   );

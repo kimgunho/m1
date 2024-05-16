@@ -74,40 +74,11 @@
         }
       }
     }
-    > .more {
-      background-color: transparent;
-      border-radius: 3.75rem;
-      border: 1px solid white;
-      padding: 1.875rem 7.5rem;
+    > .box {
       display: flex;
       align-items: center;
       justify-content: center;
-      max-width: fit-content;
-      margin: 5rem auto 0;
-      position: relative;
-      overflow: hidden;
-      &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        transition: all 0.2s;
-        opacity: 0;
-        @include gradientBg(-105deg);
-      }
-      @include hover {
-        border-color: transparent;
-        &::after {
-          opacity: 1;
-        }
-      }
-
-      > span {
-        position: relative;
-        z-index: 1;
-        color: white;
-        font-size: 1.875rem;
-        font-weight: 600;
-      }
+      margin-top: 5rem;
     }
   }
 }
