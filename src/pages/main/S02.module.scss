@@ -55,7 +55,8 @@
     }
   }
   > .section {
-    padding: 10rem 6.75rem 0;
+    @include wrapper;
+    padding-top: 10rem;
     min-height: 100vh;
     display: flex;
     position: relative;
