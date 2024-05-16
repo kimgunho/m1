@@ -4,12 +4,16 @@
   padding-top: 15rem;
   overflow: hidden;
 
-  > .title {
-    font-size: 4rem;
-    font-weight: 600;
-    @include sidePadding;
-    @include gradientText;
+  > .box {
+    @include wrapper;
+
+    > .title {
+      font-size: 4rem;
+      font-weight: 600;
+      @include gradientText;
+    }
   }
+
   > .wrapper {
     display: flex;
     flex-direction: column;

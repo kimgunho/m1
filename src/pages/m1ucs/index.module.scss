@@ -1,0 +1,18 @@
+@import 'styles/common.scss';
+
+.container {
+  @include containerBg('../assets/images/global/noise.png');
+
+  > .wrapper {
+    position: relative;
+    z-index: 2;
+    @include wrapper;
+    margin-top: 6.25rem;
+
+    > .contents {
+      background-color: #172533;
+      padding: 5rem;
+      border-radius: 2.5rem;
+    }
+  }
+}

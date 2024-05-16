@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import LOGO from 'assets/images/global/logo.png';
@@ -11,15 +11,20 @@ import styles from './Header.module.scss';
 const cx = classNames.bind(styles);
 
 const Header = () => {
+  const location = useLocation();
   const { i18n } = useTranslation();
   const [lang, setLang] = useState(i18n.language);
   const [hide, setHide] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  useEffect(() => {
     window.addEventListener('wheel', scroll);
 
     return () => {
-      window.removeChild('wheel', scroll);
+      window.removeEventListener('wheel', scroll);
     };
   }, []);
 
@@ -52,23 +57,33 @@ const Header = () => {
       <div className={cx('wrapper')}>
         <ul className={cx('gnb')}>
           {menus.map((menu) => {
+            const menuActive = location.pathname.includes(menu.url);
             if (menu.sub) {
               return (
                 <li key={menu.title}>
-                  <Link to={`${menu.url}${menu.sub[0].url}`}>{menu.title}</Link>
+                  <Link className={cx('link', { active: menuActive })} to={`${menu.url}${menu.sub[0].url}`}>
+                    {menu.title}
+                  </Link>
                   <ul className={cx('sub')}>
-                    {menu.sub.map((_sub) => (
-                      <li key={_sub.title}>
-                        <Link to={`${menu.url}${_sub.url}`}>{_sub.title}</Link>
-                      </li>
-                    ))}
+                    {menu.sub.map((_sub) => {
+                      const subMenuActive = location.pathname.includes(_sub.url);
+                      return (
+                        <li key={_sub.title}>
+                          <Link className={cx('link', { active: subMenuActive })} to={`${menu.url}${_sub.url}`}>
+                            {_sub.title}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
               );
             }
             return (
               <li key={menu.title}>
-                <Link to={menu.url}>{menu.title}</Link>
+                <Link className={cx('link', { active: menuActive })} to={menu.url}>
+                  {menu.title}
+                </Link>
               </li>
             );
           })}

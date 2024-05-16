@@ -9,7 +9,9 @@ const cx = classNames.bind(styles);
 const S04 = () => {
   return (
     <div className={cx('container')}>
-      <strong className={cx('title')}>PARTNERS</strong>
+      <div className={cx('box')}>
+        <strong className={cx('title')}>PARTNERS</strong>
+      </div>
       <div className={cx('wrapper')}>
         <ul className={cx('list')}>
           <li>

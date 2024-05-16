@@ -1,29 +1,20 @@
 @import 'styles/common.scss';
 
 .container {
-  @include sidePadding;
+  @include wrapper;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
   gap: 1.5rem;
   padding-top: 2.5rem;
   transition: transform 0.5s;
   &.hide {
     transform: translateY(calc(-100% - 1.875rem));
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 1.875rem);
-    z-index: -1;
-    backdrop-filter: blur(20px);
-    mask: linear-gradient(0deg, transparent, white 1.875rem, white calc(100% - 1.875rem));
   }
 
   > .logo {
@@ -53,12 +44,17 @@
         cursor: pointer;
         padding: 1.5rem 0;
         @include hover {
-          > a {
+          > .link {
             @include gradientHoverText(black);
           }
           > .sub {
             visibility: visible;
             opacity: 1;
+          }
+        }
+        > .link {
+          &.active {
+            @include gradientText;
           }
         }
         > .sub {
@@ -78,8 +74,11 @@
           border-radius: 1.25rem;
 
           > li {
-            > a {
+            > .link {
               @include gradientHoverText(black);
+              &.active {
+                @include gradientText;
+              }
             }
           }
         }

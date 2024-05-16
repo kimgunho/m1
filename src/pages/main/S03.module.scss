@@ -1,7 +1,7 @@
 @import 'styles/common.scss';
 
 .container {
-  @include sidePadding;
+  @include wrapper;
   padding-top: 10rem;
   position: relative;
 

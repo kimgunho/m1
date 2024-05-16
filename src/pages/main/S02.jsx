@@ -71,8 +71,8 @@ const S02 = () => {
         .to(section, { className: cx(['section', 'overlap']) }, 0);
     });
 
-    moveScrollThumb();
     fixNoise();
+    moveScrollThumb();
   }, []);
 
   const fixNoise = () => {
@@ -85,6 +85,7 @@ const S02 = () => {
       onUpdate: (self) => {
         const progress = self.progress;
         const endThreshold = 0.95;
+        if (!noiseRef.current) return;
 
         if (progress >= endThreshold) {
           gsap.to(noiseRef.current, { opacity: 0 });
@@ -101,6 +102,7 @@ const S02 = () => {
       start: 'top center',
       end: 'bottom bottom',
       onUpdate: (self) => {
+        if (!trackRef.current) return;
         const _top = ((self.progress - 0) * (trackRef.current.clientHeight - 100 - 0)) / (1 - 0) + 0;
         setTop(_top);
       },

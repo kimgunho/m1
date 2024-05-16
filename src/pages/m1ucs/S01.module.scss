@@ -1,0 +1,70 @@
+@import 'styles/common.scss';
+
+.container {
+  > .image {
+    position: relative;
+
+    > .button {
+      position: absolute;
+      left: 50%;
+      top: 9.375rem;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      border: 2px solid white;
+      background: linear-gradient(90deg, #001751 0%, #0032b4 51%, #00132f 100%);
+      padding: 1rem;
+      border-radius: 2.9375rem;
+
+      > p {
+        padding-left: 2.5rem;
+        font-size: 2rem;
+        color: white;
+      }
+      > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 2rem;
+        padding: 0.9375rem 2rem;
+        border-radius: 2.3125rem;
+        border: 1px solid white;
+        line-height: 1;
+      }
+    }
+    > img {
+      width: 100%;
+      border-radius: 1.25rem;
+    }
+  }
+  > .bold {
+    display: block;
+    width: 100%;
+    font-size: 3.75rem;
+    color: white;
+    font-weight: 600;
+    margin-top: 5rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+  > .desc {
+    font-size: 2rem;
+    color: white;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  > .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid white;
+  }
+  > .box {
+    margin-top: 5rem;
+  }
+}

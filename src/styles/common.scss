@@ -33,6 +33,13 @@ $font-size-mobile: 12px;
   padding: 0 6.75rem;
 }
 
+@mixin wrapper {
+  @include sidePadding;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 @mixin gradientBg($deg) {
   background: linear-gradient($deg, #005099 0%, #78beff 100%);
 }
@@ -53,5 +60,27 @@ $font-size-mobile: 12px;
   transition: background-position 0.5s ease-in-out;
   @include hover {
     background-position: top left 100%;
+  }
+}
+
+@mixin containerBg($url) {
+  min-height: 100vh;
+  position: relative;
+  &::before {
+    content: '';
+    z-index: 0;
+    background-image: url($url);
+    background-repeat: repeat-y;
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: overlay;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(#6bb2f4, 1) 40vh, rgba(black, 1) 100vh);
+    mix-blend-mode: overlay;
   }
 }
