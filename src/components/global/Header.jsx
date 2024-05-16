@@ -53,19 +53,19 @@ const Header = () => {
       <div className={cx('wrapper')}>
         <ul className={cx('gnb')}>
           {menus.map((menu) => {
-            const active = location.pathname.includes(menu.url);
+            const menuActive = location.pathname.includes(menu.url);
             if (menu.sub) {
               return (
                 <li key={menu.title}>
-                  <Link className={cx('link', { active })} to={`${menu.url}${menu.sub[0].url}`}>
+                  <Link className={cx('link', { active: menuActive })} to={`${menu.url}${menu.sub[0].url}`}>
                     {menu.title}
                   </Link>
                   <ul className={cx('sub')}>
                     {menu.sub.map((_sub) => {
-                      const current = location.pathname.includes(_sub.url);
+                      const subMenuActive = location.pathname.includes(_sub.url);
                       return (
                         <li key={_sub.title}>
-                          <Link className={cx('link', { active: current })} to={`${menu.url}${_sub.url}`}>
+                          <Link className={cx('link', { active: subMenuActive })} to={`${menu.url}${_sub.url}`}>
                             {_sub.title}
                           </Link>
                         </li>
@@ -77,7 +77,7 @@ const Header = () => {
             }
             return (
               <li key={menu.title}>
-                <Link className={cx('link', { active })} to={menu.url}>
+                <Link className={cx('link', { active: menuActive })} to={menu.url}>
                   {menu.title}
                 </Link>
               </li>

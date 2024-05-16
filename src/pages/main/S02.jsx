@@ -85,6 +85,7 @@ const S02 = () => {
       onUpdate: (self) => {
         const progress = self.progress;
         const endThreshold = 0.95;
+        if (!noiseRef.current) return;
 
         if (progress >= endThreshold) {
           gsap.to(noiseRef.current, { opacity: 0 });
