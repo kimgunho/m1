@@ -34,7 +34,7 @@ const Header = () => {
       return;
     }
 
-    e.deltaY > 0 ? setHide(true) : setHide(false);
+    e.deltaY < 0 && e.deltaX === 0 ? setHide(false) : setHide(true);
   };
 
   const toggle = () => {

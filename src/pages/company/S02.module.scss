@@ -1,0 +1,61 @@
+@import 'styles/common.scss';
+
+.container {
+  > .wrapper {
+    @include wrapper;
+
+    > .top {
+      margin-bottom: 7.5rem;
+
+      > .company {
+        font-size: 1.5rem;
+        color: white;
+        font-weight: 600;
+      }
+      > .box {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 5rem;
+
+        > .left {
+          > strong {
+            font-weight: 600;
+            font-size: 4rem;
+            @include gradientText;
+          }
+        }
+        > .right {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          > .card {
+            border-radius: 1.25rem;
+            border: 2px solid transparent;
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            background-image: linear-gradient(black, black), linear-gradient(275deg, #c6f1ff 0%, #0094ff 100%);
+
+            > .box {
+              display: flex;
+              align-items: center;
+              gap: 3.75rem;
+              padding: 2.5rem 3.75rem;
+
+              > strong {
+                font-size: 2.5rem;
+                font-weight: 600;
+                min-width: 12.5rem;
+                @include gradientText;
+              }
+              > p {
+                color: white;
+                font-size: 2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
