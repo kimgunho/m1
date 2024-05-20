@@ -1,0 +1,193 @@
+@import 'styles/common.scss';
+
+.container {
+  padding-top: 160px;
+  background-color: black;
+
+  > .wrapper {
+    @include wrapper;
+
+    > .text {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    > .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      > .title {
+        font-size: 4rem;
+        font-weight: 600;
+        @include gradientText;
+      }
+      > .desc {
+        color: white;
+        font-size: 2rem;
+      }
+    }
+    > form {
+      margin-top: 6.875rem;
+      padding: 5rem 4rem;
+      background-color: white;
+      border-radius: 3.75rem;
+
+      > .row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 3.5rem;
+
+        > .radio {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: white;
+          cursor: pointer;
+          border: 1px solid black;
+          border-radius: 3.75rem;
+          position: relative;
+          width: fit-content;
+          height: 4.8125rem;
+          padding: 0 2.5rem 0 3.5rem;
+          &:has(> input:checked) {
+            @include gradientBg(45deg);
+            border: 0;
+            &::before {
+              background-color: white;
+            }
+            > p {
+              color: white;
+            }
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 1.875rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: black;
+          }
+
+          > p {
+            font-weight: 600;
+            color: black;
+            font-size: 20px;
+          }
+        }
+      }
+      .field {
+        width: 100%;
+
+        > .label {
+          font-size: 1.5rem;
+          color: rgba(black, 0.6);
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          &.required {
+            &::after {
+              content: '*';
+              @include gradientText;
+            }
+          }
+        }
+        > input {
+          outline: 0;
+          margin-top: 1rem;
+          width: 100%;
+          border: 0;
+          border-bottom: 1px solid black;
+          font-size: 18px;
+        }
+      }
+      > .grid {
+        margin-bottom: 3.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        grid-gap: 1.5rem;
+      }
+      > .right {
+        margin-top: 3.5rem;
+        width: fit-content;
+        margin-left: auto;
+
+        > .agree {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          &:has(input:checked) {
+            > .checkbox {
+              border: 0;
+              @include gradientBg(45deg);
+            }
+          }
+
+          > .checkbox {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid black;
+          }
+          > .text {
+            color: rgba(black, 0.6);
+            font-size: 1.5rem;
+            position: relative;
+            &::after {
+              content: '*';
+              @include gradientText;
+            }
+          }
+        }
+      }
+      > .submit {
+        width: fit-content;
+        background-color: transparent;
+        margin-top: 3.5rem;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        overflow: hidden;
+        height: 6.25rem;
+        padding: 0 7.5rem;
+        border-radius: 3.75rem;
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          transition: all 0.2s;
+          opacity: 0;
+          @include gradientBg(-105deg);
+        }
+        @include hover {
+          border-color: transparent;
+          &::after {
+            opacity: 1;
+          }
+
+          > span {
+            color: white;
+          }
+        }
+
+        > span {
+          position: relative;
+          z-index: 1;
+          font-size: 1.75rem;
+          color: black;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

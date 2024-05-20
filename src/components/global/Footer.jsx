@@ -1,9 +1,10 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
-import styles from './Footer.module.scss';
 import TEXT_BG from 'assets/images/global/mobilityone_text.png';
+import styles from './Footer.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -27,14 +28,12 @@ const Footer = () => {
     <footer className={cx('container')}>
       <div className={cx('wrapper')}>
         <div className={cx('top')}>
-          <div className={cx('box')}>
-            <p className={cx('text')}>
+          <Link to="/company#form" className={cx('box')}>
+            <span className={cx('text')}>
               CONNECT WITH MOBILITYONE <RiArrowRightUpLine size={28} />
-            </p>
-            <a className={cx('mail')} href="mailto:sales@themobilityone.com">
-              sales@themobilityone.com
-            </a>
-          </div>
+            </span>
+            <span className={cx('email')}>sales@themobilityone.com</span>
+          </Link>
           <div className={cx('box')}>
             <p className={cx('addr')}>
               302, 39-1, Seongsuil-ro 8-gil,

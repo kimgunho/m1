@@ -1,0 +1,56 @@
+@import 'styles/common.scss';
+
+.container {
+  background-color: black;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+
+  > .wrapper {
+    @include wrapper;
+
+    > .title {
+      font-size: 4rem;
+      font-weight: 600;
+      width: fit-content;
+      @include gradientText;
+    }
+  }
+  > .partners {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow: hidden;
+    margin-top: 3.75rem;
+
+    > .list {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      width: max-content;
+      overflow: hidden;
+      user-select: none;
+      &:first-of-type {
+        animation: scroll 50s reverse linear infinite;
+        margin-left: 98px;
+      }
+      &:last-of-type {
+        animation: scroll 50s linear infinite;
+      }
+
+      > li {
+        background-color: white;
+        border-radius: 6.25rem;
+        > img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  100% {
+    transform: translateX(calc(-50% - 1.5rem));
+  }
+}

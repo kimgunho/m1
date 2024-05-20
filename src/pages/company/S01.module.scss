@@ -1,0 +1,64 @@
+@import 'styles/common.scss';
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > .logo {
+    position: relative;
+    z-index: 1;
+
+    > img {
+      width: 100%;
+      max-width: 236px;
+      margin: auto;
+    }
+    > p {
+      margin-top: 2rem;
+      color: white;
+      font-weight: 600;
+      font-size: 2.625rem;
+    }
+  }
+  > .bold {
+    position: relative;
+    z-index: 1;
+    margin-top: 80px;
+    text-align: center;
+    font-size: 3.75rem;
+    font-weight: 600;
+    @include gradientText;
+  }
+  > .text {
+    color: white;
+    margin-top: 2.25rem;
+    font-size: 2rem;
+  }
+  > .background {
+    background-image: url('../../assets/images/global/noise.png');
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: soft-light;
+    isolation: isolate;
+    &::before {
+      content: '';
+      background: radial-gradient(at 50% bottom, rgba(#6bb2f4, 1) 0%, rgba(black, 1) 100%);
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: soft-light;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: white;
+      z-index: -10;
+      inset: 0;
+      opacity: 0.35;
+    }
+  }
+}

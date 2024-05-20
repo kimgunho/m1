@@ -17,7 +17,13 @@ const Header = () => {
   const [hide, setHide] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (location.hash === '#form' && location.pathname === '/company') {
+      const form = document.getElementById('form');
+      window.scrollTo(0, form.offsetTop);
+      return;
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [location]);
 
   useEffect(() => {
@@ -34,7 +40,7 @@ const Header = () => {
       return;
     }
 
-    e.deltaY > 0 ? setHide(true) : setHide(false);
+    e.deltaY < 0 && e.deltaX === 0 ? setHide(false) : setHide(true);
   };
 
   const toggle = () => {

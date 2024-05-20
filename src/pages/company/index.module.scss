@@ -1,5 +1,27 @@
 @import 'styles/common.scss';
 
 .container {
-  //
+  > .wrapper {
+    position: relative;
+    padding: 10rem 0;
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #101010;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('../../assets/images/global/noise.png');
+      background-repeat: repeat-y;
+      mix-blend-mode: overlay;
+      opacity: 0.5;
+    }
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+  }
 }

@@ -1,0 +1,48 @@
+@import 'styles/common.scss';
+
+.container {
+  padding-top: 12.5rem;
+  background-color: black;
+
+  > .wrapper {
+    @include wrapper;
+
+    > .map {
+      width: 100%;
+      height: 500px;
+      border-radius: 2.5rem;
+      overflow: hidden;
+      border: 0;
+    }
+    > .info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+
+      > a {
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background-color: rgba(white, 0.1);
+        padding: 0 3.75rem;
+        height: 90px;
+        font-size: 1.875rem;
+        border-radius: 3.125rem;
+      }
+      > p {
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background-color: rgba(white, 0.1);
+        padding: 0 3.75rem;
+        height: 90px;
+        font-size: 1.875rem;
+        border-radius: 3.125rem;
+      }
+    }
+  }
+}
