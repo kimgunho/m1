@@ -1,5 +1,88 @@
 @import 'styles/common.scss';
 
 .container {
-  //
+  @include containerBg('../assets/images/global/noise.png');
+
+  > .wrapper {
+    position: relative;
+    z-index: 2;
+    @include wrapper;
+    margin-top: 6.25rem;
+    padding-bottom: 10rem;
+
+    > .contents {
+      background-color: #172533;
+      padding: 5rem;
+      border-radius: 2.5rem;
+      &:not(&:last-of-type) {
+        margin-bottom: 5rem;
+      }
+
+      > .row {
+        display: flex;
+        gap: 4rem;
+
+        > * {
+          width: 50%;
+          &.left {
+            > .title {
+              font-size: 2.5rem;
+              font-weight: 600;
+              width: fit-content;
+              margin-bottom: 0.5rem;
+              @include gradientText;
+            }
+            > .desc {
+              font-size: 1.5rem;
+              color: white;
+              margin-bottom: 3.75rem;
+            }
+            > img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+          &.right {
+            display: flex;
+            flex-direction: column;
+            gap: 3.75rem;
+            background-color: rgba(black, 0.3);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+
+            > .box {
+              > .title {
+                font-size: 2rem;
+                color: white;
+                margin-bottom: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+      > .title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+        @include gradientText;
+      }
+      > .desc {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+      }
+      > .image {
+        margin-top: 3.75rem;
+        background-color: rgba(black, 0.3);
+        border-radius: 1.25rem;
+        padding: 5.625rem 10rem;
+
+        > img {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
