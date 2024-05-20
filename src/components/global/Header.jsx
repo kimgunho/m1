@@ -17,7 +17,13 @@ const Header = () => {
   const [hide, setHide] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (location.hash === '#form' && location.pathname === '/company') {
+      const form = document.getElementById('form');
+      window.scrollTo(0, form.offsetTop);
+      return;
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [location]);
 
   useEffect(() => {

@@ -62,7 +62,7 @@ const S04 = () => {
   };
 
   return (
-    <div className={cx('container')}>
+    <div id="form" className={cx('container')}>
       <div className={cx('wrapper')}>
         <p className={cx('text')}>GET IN TOUCH</p>
         <div className={cx('top')}>
