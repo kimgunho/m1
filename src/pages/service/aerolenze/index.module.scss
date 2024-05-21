@@ -1,5 +1,120 @@
 @import 'styles/common.scss';
 
 .container {
-  //
+  @include containerBg('../assets/images/global/noise.png');
+
+  > .wrapper {
+    position: relative;
+    z-index: 2;
+    @include wrapper;
+    margin-top: 6.25rem;
+    padding-bottom: 10rem;
+
+    > .contents {
+      background-color: #172533;
+      padding: 5rem;
+      border-radius: 2.5rem;
+
+      > .title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        width: fit-content;
+        @include gradientText;
+      }
+      > .desc {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 5rem;
+      }
+      > .top {
+        border-radius: 1.5rem;
+        background: linear-gradient(0deg, #199ff4 0%, #5360f8 100%);
+        padding: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5rem;
+
+        > img {
+          width: 100%;
+        }
+      }
+      > .bottom {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        // gap: 6.25rem;
+
+        > .left {
+          width: 50%;
+
+          > .desc {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 12.5rem;
+          }
+          > .image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 4rem;
+            background: linear-gradient(0deg, #bedeff 0%, #a3a7ff 100%);
+
+            > .desc {
+              font-size: 2rem;
+              color: white;
+              text-align: center;
+              font-weight: 600;
+            }
+            > img {
+              width: 100%;
+              border-radius: 1rem;
+            }
+          }
+        }
+        > .right {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 5rem;
+
+          > .image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 4rem;
+            &:first-of-type {
+              background: linear-gradient(0deg, #ffdcd9 0%, #c7b2ff 100%);
+            }
+            &:last-of-type {
+              background: linear-gradient(0deg, #9bc9ff 0%, #62aaf7 100%);
+            }
+
+            > .desc {
+              font-size: 2rem;
+              color: white;
+              text-align: center;
+              font-weight: 600;
+            }
+            > img {
+              width: 100%;
+              border-radius: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
