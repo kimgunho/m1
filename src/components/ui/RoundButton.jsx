@@ -5,7 +5,15 @@ import styles from './RoundButton.module.scss';
 
 const cx = classNames.bind(styles);
 
-const RoundButton = ({ href, text }) => {
+const RoundButton = ({ href, text, onClick }) => {
+  if (onClick) {
+    return (
+      <button onClick={onclick} className={cx('container')}>
+        <span>{text}</span>
+      </button>
+    );
+  }
+
   if (href.includes('http')) {
     return (
       <a className={cx('container')} href={href} target="_blank" rel="noreferrer">
