@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import COMPANY from 'assets/images/company/company.png';
 
@@ -7,6 +8,8 @@ import styles from './S02.module.scss';
 const cx = classNames.bind(styles);
 
 const S02 = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('container')}>
       <div className={cx('wrapper')}>
@@ -24,22 +27,19 @@ const S02 = () => {
               <div className={cx('card')}>
                 <div className={cx('box')}>
                   <strong>VISION</strong>
-                  <p>
-                    Global Top Tier / Asia No.1
-                    <br /> UxV Operation Platform Company
-                  </p>
+                  <p>{t('company.S02_vision_desc')}</p>
                 </div>
               </div>
               <div className={cx('card')}>
                 <div className={cx('box')}>
                   <strong>MISSION</strong>
-                  <p>Integrating UxV into Daily Life</p>
+                  <p>{t('company.S02_mission_desc')}</p>
                 </div>
               </div>
               <div className={cx('card')}>
                 <div className={cx('box')}>
                   <strong>VALUE</strong>
-                  <p>Human Safety and Work Efficiency</p>
+                  <p>{t('company.S02_value_desc')}</p>
                 </div>
               </div>
             </div>

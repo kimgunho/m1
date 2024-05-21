@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import WIDE_RANGE_SURVEY from 'assets/images/service/survey/wide_range_survey.jpg';
 import JI_HO_V2 from 'assets/images/service/survey/ji_ho_v2.png';
@@ -12,6 +13,8 @@ import styles from './index.module.scss';
 const cx = classNames.bind(styles);
 
 const Page = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('container')}>
       <SubTop title="WIDE RANGE SURVEY" subTitle="SERVICE" />
@@ -58,10 +61,10 @@ const Page = () => {
           <div className={cx('bottom')}>
             <List
               list={[
-                'Utilizing long-range fixed-wing or VTOL aircraft for extended flights.',
-                'Utilizing LTE with no communication distance limitations.',
-                'Utilizing M1UCS-based operations for simultaneous control of multiple aircraft,  enabling surveys across multiple areas at once',
-                'Our Services are available at a low cost compared to high-cost aerial surveying  operations using conventional airplane.',
+                t('wideRangeSurvey.list_01'),
+                t('wideRangeSurvey.list_02'),
+                t('wideRangeSurvey.list_03'),
+                t('wideRangeSurvey.list_04'),
               ]}
             />
           </div>

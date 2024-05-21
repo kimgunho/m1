@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import SVMAX from 'assets/images/product/SVMAX/SVMax.png';
 import NETWORK from 'assets/images/product/SVMAX/network.png';
@@ -10,6 +11,8 @@ import styles from './index.module.scss';
 const cx = classNames.bind(styles);
 
 const Page = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('container')}>
       <SubTop title="SV - MAX" subTitle="PRODUCT - H/W" />
@@ -18,7 +21,7 @@ const Page = () => {
           <div className={cx('row')}>
             <div className={cx('left')}>
               <strong className={cx('title')}>Smatii View Max</strong>
-              <p className={cx('desc')}>Integrated LTE Communication Device for Unmanned Vehicles</p>
+              <p className={cx('desc')}>{t('SVMax.content01_desc')}</p>
               <img src={SVMAX} alt="" />
             </div>
             <div className={cx('right')}>
@@ -53,10 +56,7 @@ const Page = () => {
           </div>
         </div>
         <div className={cx('contents')}>
-          <strong className={cx('title')}>
-            Implementation of an integrated{'\n'}
-            communication network
-          </strong>
+          <strong className={cx('title')}>{t('SVMax.content02_title')}</strong>
           <p className={cx('desc')}>real-time video, control, and mission</p>
           <div className={cx('image')}>
             <img src={NETWORK} alt="" />

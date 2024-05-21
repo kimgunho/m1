@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import M1Winch from 'assets/images/product/winchForDrone/m1_winch.png';
 import M1Winch_Item from 'assets/images/product/winchForDrone/winch_item.png';
@@ -10,6 +11,8 @@ import styles from './index.module.scss';
 const cx = classNames.bind(styles);
 
 const Page = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('container')}>
       <SubTop title="M1 Winch for Drone" subTitle="PRODUCT - H/W" />
@@ -86,13 +89,7 @@ const Page = () => {
             </div>
           </div>
           <div className={cx('bottom')}>
-            <List
-              list={[
-                'Small Winch for Small VTOL and Multi-copter for Delivery Purposes',
-                'Remote Control via MavLink Protocol - Speed, Direction, etc.',
-                'Compatible with PX4/APM',
-              ]}
-            />
+            <List list={[t('winchForDrone.list_01'), t('winchForDrone.list_02'), t('winchForDrone.list_03')]} />
           </div>
         </div>
       </div>

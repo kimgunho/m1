@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 import emailjs from '@emailjs/browser';
+import { useTranslation } from 'react-i18next';
 
 import { EMAILJS_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE } from 'config';
 import styles from './S04.module.scss';
@@ -8,6 +9,7 @@ import styles from './S04.module.scss';
 const cx = classNames.bind(styles);
 
 const S04 = () => {
+  const { t } = useTranslation();
   const formRef = useRef();
   const [values, setValues] = useState({});
 
@@ -67,10 +69,7 @@ const S04 = () => {
         <p className={cx('text')}>GET IN TOUCH</p>
         <div className={cx('top')}>
           <strong className={cx('title')}>CONTACT US</strong>
-          <p className={cx('desc')}>
-            Do you have any inquiries? Please select a category and then{'\n'} enter your inquiry in the input box
-            below. We will respond as{'\n'} soon as possible.
-          </p>
+          <p className={cx('desc')}>{t('company.S04_desc')}</p>
         </div>
         <form ref={formRef}>
           <div className={cx('row')}>

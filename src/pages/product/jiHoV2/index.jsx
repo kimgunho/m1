@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import JI_HO_V2 from 'assets/images/product/jiHoV2/jiHoV2.png';
 import Mapping01 from 'assets/images/product/jiHoV2/mapping01.png';
@@ -15,6 +16,8 @@ import styles from './index.module.scss';
 const cx = classNames.bind(styles);
 
 const Page = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('container')}>
       <SubTop title="JI-HO V2" subTitle="PRODUCT - H/W" />
@@ -22,10 +25,7 @@ const Page = () => {
         <div className={cx('contents')}>
           <div className={cx('top')}>
             <strong className={cx('title')}>JI-HO V2</strong>
-            <p className={cx('desc')}>
-              Equipped with the capability for long-duration flights, excels in aerial surveying,{'\n'}
-              high-precision military/surveillance, and night flights.
-            </p>
+            <p className={cx('desc')}>{t('jiHoV2.desc')}</p>
           </div>
           <div className={cx('bottom')}>
             <img src={JI_HO_V2} alt="" />

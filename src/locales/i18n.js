@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import en from './lang.en.json';
 import ko from './lang.ko.json';
 
-let lang = localStorage.getItem('@m1/lang');
+const lang = localStorage.getItem('@m1/lang');
 
 i18n.use(initReactI18next).init({
   resources: {

@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import M1UCS_IMG from 'assets/images/m1ucs/m1ucs.jpg';
 
@@ -9,6 +10,8 @@ import styles from './S01.module.scss';
 const cx = classNames.bind(styles);
 
 const S01 = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('container')}>
       <div className={cx('image')}>
@@ -20,15 +23,8 @@ const S01 = () => {
         </div>
         <img src={M1UCS_IMG} alt="" />
       </div>
-      <strong className={cx('bold')}>
-        Solution for remotely monitoring and
-        <br /> controlling various types of unmanned vehicles.
-      </strong>
-      <p className={cx('desc')}>
-        Individual/integrated operation of each device, integrated monitoring
-        <br />
-        with diagnostic sensors.
-      </p>
+      <strong className={cx('bold')}>{t('m1ucs.S01_title')}</strong>
+      <p className={cx('desc')}>{t('m1ucs.S01_desc')}</p>
       <div className={cx('box')}>
         <RoundButton text="START M1UCS" href={M1UCS_DOMAIN} />
       </div>

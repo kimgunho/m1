@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 import Slider from 'react-slick';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
@@ -14,6 +15,7 @@ import styles from './S05.module.scss';
 const cx = classNames.bind(styles);
 
 const S05 = () => {
+  const { t } = useTranslation();
   const slickRef = useRef();
 
   const settings = {
@@ -44,7 +46,7 @@ const S05 = () => {
           </button>
         </div>
         <Slider ref={(slider) => (slickRef.current = slider)} {...settings}>
-          {Array(5)
+          {Array(2)
             .fill()
             .map((_, i) => (
               <div key={i}>
@@ -52,25 +54,17 @@ const S05 = () => {
                   <div className={cx('left')}>
                     <div className={cx('top')}>
                       <p className={cx('subTitle')}>Use case</p>
-                      <strong className={cx('title')}>
-                        Efficiency in Surveying through the Simultaneous Operation of Multiple Drones
-                      </strong>
+                      <strong className={cx('title')}>{t('m1ucs.S05_swipe01_title')}</strong>
                     </div>
                     <div className={cx('bottom')}>
                       <ul className={cx('list')}>
                         <li>
-                          <strong>Work efficiency increased by up to 500%</strong>
-                          <p>
-                            Operating 5 drones simultaneously can yield a fivefold efficiency compared to single-drone
-                            operations.
-                          </p>
+                          <strong>{t('m1ucs.S05_swipe01_list01_title')}</strong>
+                          <p>{t('m1ucs.S05_swipe01_list01_desc')}</p>
                         </li>
                         <li>
-                          <strong>Labor costs reduced by up to 70%</strong>
-                          <p>
-                            A minimum of 5 drones (no maximum limit) can be operated simultaneously by a single person,
-                            potentially reducing labor input from 2-3 people by up to 70%
-                          </p>
+                          <strong>{t('m1ucs.S05_swipe01_list02_title')}</strong>
+                          <p>{t('m1ucs.S05_swipe01_list02_desc')}</p>
                         </li>
                       </ul>
                     </div>

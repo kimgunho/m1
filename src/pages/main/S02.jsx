@@ -25,31 +25,31 @@ const S02 = () => {
     {
       subTitle: 'MOBILITYONE',
       title: 'WHO WE ARE',
-      desc: t('main.whoWeAre'),
+      desc: t('main.S02_01_desc'),
       pictogram: null,
     },
     {
       subTitle: 'OUR ADVANTAGE 01',
       title: 'INTEGRATION',
-      desc: t('main.integration'),
+      desc: t('main.S02_02_desc'),
       pictogram: Section02_PICTOGRAM,
     },
     {
       subTitle: 'OUR ADVANTAGE 02',
       title: 'SAFETY',
-      desc: t('main.safety'),
+      desc: t('main.S02_03_desc'),
       pictogram: Section03_PICTOGRAM,
     },
     {
       subTitle: 'OUR ADVANTAGE 03',
       title: 'EXTENSIBILITY/&COMPATIBILITY',
-      desc: t('main.extensibility'),
+      desc: t('main.S02_04_desc'),
       pictogram: Section04_PICTOGRAM,
     },
     {
       subTitle: 'OUR ADVANTAGE 04',
       title: 'EASY TO USE',
-      desc: t('main.easyToUse'),
+      desc: t('main.S02_05_desc'),
       pictogram: Section05_PICTOGRAM,
     },
   ];

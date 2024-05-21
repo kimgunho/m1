@@ -1,9 +1,77 @@
 {
   "main": {
-    "whoWeAre": "MOBILITYONE offers an integrated platform, M1UCS, that effectively operates a variety of mobility robots. We also provide high-quality outsourcing services utilizing this platform, ensuring that you no longer waste time learning how to use drones or robots. Instead, you can focus solely on your core business tasks with MobilityOne's solutions and services.",
-    "integration": "Various types of unmanned vehicles such as robots and drones can be integrated into a single application, enabling systematic governance-centric operations.",
-    "safety": "Safety operation processes are in place to eliminate user errors, and it is possible to conduct safety inspections and predictive maintenance of critical components.",
-    "extensibility": "Based on the latest web technologies, it ensures excellent scalability and device compatibility, and is capable of providing services in all forms, including cloud, on-premise/stand-alone, and mobile.",
-    "easyToUse": "The UI/UX of the solution is designed to be operated without any knowledge of the devices, allowing existing staff to use it easily without the need for additional training."
+    "S02_01_desc": "MOBILITYONE offers an integrated platform, M1UCS, that effectively operates a variety of mobility robots. We also provide high-quality outsourcing services utilizing this platform, ensuring that you no longer waste time learning how to use drones or robots. Instead, you can focus solely on your core business tasks with MobilityOne's solutions and services.",
+    "S02_02_desc": "Various types of unmanned vehicles such as robots and drones can be integrated into a single application, enabling systematic governance-centric operations.",
+    "S02_03_desc": "Safety operation processes are in place to eliminate user errors, and it is possible to conduct safety inspections and predictive maintenance of critical components.",
+    "S02_04_desc": "Based on the latest web technologies, it ensures excellent scalability and device compatibility, and is capable of providing services in all forms, including cloud, on-premise/stand-alone, and mobile.",
+    "S02_05_desc": "The UI/UX of the solution is designed to be operated without any knowledge of the devices, allowing existing staff to use it easily without the need for additional training."
+  },
+  "m1ucs": {
+    "S01_title": "Solution for remotely monitoring and\ncontrolling various types of unmanned vehicles.",
+    "S01_desc": "Individual/integrated operation of each device and integrated monitoring\nwith diagnostic sensors.",
+    "S02_list_01": "Provision of variable UI elements according to the characteristics and profile of the device.",
+    "S02_list_02": "A flexible UI architecture that is easy to add or change according to the device and field work, such as monitoring cards, maps, etc.",
+    "S03_list01_title": "Fast Mission Planning",
+    "S03_list01_01": "Point, Polygon, Draw Line/Area",
+    "S03_list01_02": "Camera and Mission Equipment Config",
+    "S03_list01_03": "Graphic Altitude Correction/Editing",
+    "S03_list01_04": "Support/Compatibility for Various Types of Maps",
+    "S03_list02_title": "Easy Integration with Other Systems",
+    "S03_list02_01": "Device-independent Standalone - 1 Mission Multi-use",
+    "S03_list02_02": "Compatible with DJI/EVO Enterprise Series",
+    "S03_list02_03": "Export/Import Mission Files",
+    "S04_desc": "Simulation Data\nGeneration Algorithm",
+    "S04_list01_title": "SW based Simulation",
+    "S04_list01_01": "Cloud-based simulator powered by proprietary algorithms",
+    "S04_list01_02": "3D-based flight/operation preview",
+    "S04_list01_03": "Video controls such as skip, rewind, etc.",
+    "S04_list02_title": "Advance Verification of Weather and Other Hazardous Conditions",
+    "S04_list02_01": "Pre-verification of mission stability through the setting of environmental variables such as wind direction and wind speed",
+    "S04_list02_02": "Advance verification of high-rise buildings, artificial structures, and hazardous facilities",
+    "S05_swipe01_title": "Efficiency in Surveying through the Simultaneous Operation of Multiple Drones",
+    "S05_swipe01_list01_title": "Work efficiency increased by up to 500%",
+    "S05_swipe01_list01_desc": "Operating 5 drones simultaneously can yield a fivefold efficiency compared to single-drone operations.",
+    "S05_swipe01_list02_title": "Labor costs reduced by up to 70%",
+    "S05_swipe01_list02_desc": "A minimum of 5 drones (no maximum limit) can be operated simultaneously by a single person, potentially reducing labor input from 2-3 people by up to 70%"
+  },
+  "edgeHub": {
+    "list_01": "Telemetry transmission and reception for drone remote control.",
+    "list_02": "Compatible with both RF and LTE",
+    "list_03": "Control of various camera models with provided SDK.",
+    "list_04": "Control of various equipment for mission execution such as gimbal, RTK, sensors, etc.",
+    "list_05": "Seamless integration with M1UCS for unified operation."
+  },
+  "winchForDrone": {
+    "list_01": "Small Winch for Small VTOL and Multi-copter for Delivery Purposes",
+    "list_02": "Remote Control via MavLink Protocol - Speed, Direction, etc.",
+    "list_03": "Compatible with PX4/APM"
+  },
+  "jiHoV2": {
+    "desc": "Equipped with the capability for long-duration flights, excels in aerial surveying,\nhigh-precision military/surveillance, and night flights."
+  },
+  "SVMax": {
+    "content01_desc": "Integrated LTE Communication Device for Unmanned Vehicles",
+    "content02_title": "Implementation of an integrated\ncommunication network"
+  },
+  "wideRangeSurvey": {
+    "list_01": "Utilizing long-range fixed-wing or VTOL aircraft for extended flights.",
+    "list_02": "Utilizing LTE with no communication distance limitations.",
+    "list_03": "Utilizing M1UCS-based operations for simultaneous control of multiple aircraft, enabling surveys across multiple areas at once",
+    "list_04": "Low cost compared to high-cost aerial surveying operations using conventional airplane."
+  },
+  "aeroLenze": {
+    "desc_01": "AeroLenze is a service for easily capturing stunning aerial shots without the need to carry a drone, by summoning nearby drones for filming.",
+    "desc_02": "For this service, autonomous drones and unmanned operation stations are managed through Mobility One's M1UCS. Starting with a pilot service on Jeju Island in 2024, we plan to gradually expand.",
+    "card01_desc": "Capture Your Special Moments with Drones!",
+    "card02_desc": "No need to carry a drone around, just AeroLenze is enough!",
+    "card03_desc": "How about we start with AeroLens right now?"
+  },
+  "company": {
+    "S01_title": "Multi-type Unmanned Vehicle\nIntegrated Operation Platform & Services",
+    "S01_desc": "Adding safety at an affordable price.",
+    "S02_vision_desc": "Global Top Tier / Asia No.1\nMobility Robotics Platform and Service Company",
+    "S02_mission_desc": "Making mobility robotics common and part of everyday life.",
+    "S02_value_desc": "Human Safety and Work Efficiency",
+    "S04_desc": "Do you have any inquiries? Please select a category and then\nenter your inquiry in the input box below. We will respond as\nsoon as possible."
   }
 }

@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import CONTROL_CENTER from 'assets/images/m1ucs/control_center.jpg';
 
@@ -8,6 +9,8 @@ import styles from './S02.module.scss';
 const cx = classNames.bind(styles);
 
 const S02 = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('container')}>
       <strong className={cx('title')}>Control Center</strong>
@@ -58,12 +61,7 @@ const S02 = () => {
           </div>
           <div className={cx('bottom')}>
             <strong className={cx('title')}>Flexible UI/UX</strong>
-            <List
-              list={[
-                'Provision of variable UI elements according to the characteristics and profile of the device.',
-                'A flexible UI architecture that is easy to add or change according to the device and field work, such as monitoring cards, maps, etc.',
-              ]}
-            />
+            <List list={[t('m1ucs.S02_list_01'), t('m1ucs.S02_list_02')]} />
           </div>
         </div>
         <div className={cx('right')}>
