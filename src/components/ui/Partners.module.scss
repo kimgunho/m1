@@ -1,0 +1,41 @@
+@import 'styles/common.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3.75rem;
+
+  > .list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: max-content;
+    overflow: hidden;
+    user-select: none;
+    &:first-of-type {
+      animation: scroll 50s reverse linear infinite;
+      margin-left: 98px;
+    }
+    &:last-of-type {
+      animation: scroll 50s linear infinite;
+    }
+
+    > li {
+      background-color: white;
+      border-radius: 6.25rem;
+      padding: 1.25rem 2.5rem;
+
+      > img {
+        width: 15rem;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  100% {
+    transform: translateX(calc(-50% - 1.5rem));
+  }
+}

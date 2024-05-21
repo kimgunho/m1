@@ -8,6 +8,7 @@
   > .title {
     font-size: 4rem;
     font-weight: 600;
+    width: fit-content;
     @include gradientText;
   }
   > .wrapper {
