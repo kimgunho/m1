@@ -22,7 +22,7 @@ const Page = () => {
             .fill()
             .map((_, i) => (
               <li key={i}>
-                <Link to={'/'}>
+                <Link to={'/news/aaa'}>
                   <div className={cx('info')}>
                     <p className={cx('publishedAt')}>AUG 17, 2024</p>
                     <strong className={cx('title')}>Extensibility & Compatibility</strong>
