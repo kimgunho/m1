@@ -8,48 +8,24 @@
 
   > .slick {
     position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      width: 90px;
-      border-radius: 0 2.5rem 2.5rem 0;
-      top: 0;
-      height: 100%;
-      background-color: #4d4d4d;
-      z-index: 1;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      width: 90px;
-      border-radius: 2.5rem 0 0 2.5rem;
-      top: 0;
-      height: 100%;
-      background-color: #4d4d4d;
-      z-index: 1;
-    }
 
     > .controls {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
       > .button {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        appearance: none;
-        background-color: transparent;
-        pointer-events: auto;
+        top: 0;
+        z-index: 1;
+        bottom: 0;
+        width: 90px;
+        background-color: #4d4d4d;
         color: white;
 
         &.prev {
-          left: 10px;
+          left: 0;
+          border-radius: 0 2.5rem 2.5rem 0;
         }
         &.next {
-          right: 10px;
+          right: 0;
+          border-radius: 2.5rem 0 0 2.5rem;
         }
       }
     }
