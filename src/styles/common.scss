@@ -46,6 +46,14 @@ $font-size-mobile: 12px;
 
 @mixin sidePadding {
   padding: 0 6.75rem;
+  @include TABLET {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  @include MOBILE {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @mixin wrapper {

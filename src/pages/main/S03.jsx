@@ -15,17 +15,17 @@ const S03 = () => {
       <strong className={cx('title')}>PRODUCT & SERVICE</strong>
       <div className={cx('wrapper')}>
         <div className={cx('box')}>
-          <Link to={'/'} className={cx('content')}>
+          <Link to={'/m1ucs'} className={cx('content')}>
             <p className={cx('label')}>M1UCS</p>
             <img draggable={false} src={M1UCS} alt="" />
           </Link>
         </div>
         <div className={cx('box')}>
-          <Link to={'/'} className={cx('content')}>
+          <Link to={'/service/survey'} className={cx('content')}>
             <p className={cx('label')}>SURVEY</p>
             <img draggable={false} src={SURVEY} alt="" />
           </Link>
-          <Link to={'/'} className={cx('content')}>
+          <Link to={'/service/aerolenze'} className={cx('content')}>
             <p className={cx('label')}>AERO LENZE</p>
             <img draggable={false} src={AEROLENZE} alt="" />
           </Link>

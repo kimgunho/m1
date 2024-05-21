@@ -5,6 +5,8 @@
   flex-direction: column;
   gap: 2rem;
   margin-top: 3.75rem;
+  width: 100%;
+  overflow: hidden;
 
   > .list {
     display: flex;
@@ -29,6 +31,10 @@
       > img {
         width: 15rem;
         object-fit: cover;
+
+        @include TABLET {
+          width: 10rem;
+        }
       }
     }
   }
