@@ -12,7 +12,12 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  font-size: $font-size-desktop;
+  @include WIDE {
+    font-size: $font-size-wide;
+  }
+  @include DESKTOP {
+    font-size: $font-size-desktop;
+  }
   @include TABLET {
     font-size: $font-size-tablet;
   }

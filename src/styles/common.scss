@@ -1,13 +1,28 @@
 // device
-$tablet: 1080px;
-$mobile: 760px;
+$wide: 1441px;
+$desktop: 1440px;
+$tablet: 1280px;
+$mobile: 768px;
 
 // font-size
-$font-size-desktop: 16px;
+$font-size-wide: 16px;
+$font-size-desktop: 15px;
 $font-size-tablet: 14px;
 $font-size-mobile: 12px;
 
 // responsive
+@mixin WIDE {
+  @media screen and (min-width: $wide) {
+    @content;
+  }
+}
+
+@mixin DESKTOP {
+  @media screen and (max-width: $desktop) {
+    @content;
+  }
+}
+
 @mixin TABLET {
   @media screen and (max-width: $tablet) {
     @content;
